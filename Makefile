@@ -1,4 +1,4 @@
-.PHONY: install dev test lint format clean help run
+.PHONY: install dev test lint format clean help run deb
 
 # Default target
 help:
@@ -10,6 +10,7 @@ help:
 	@echo "  format     - Format code"
 	@echo "  clean      - Clean up generated files"
 	@echo "  run        - Run the bot"
+	@echo "  deb        - Build Debian package"
 
 install:
 	poetry install --no-dev
@@ -43,3 +44,6 @@ run:
 # For debugging
 run-debug:
 	poetry run claude-telegram-bot --debug
+
+deb:
+	./scripts/build-deb.sh
